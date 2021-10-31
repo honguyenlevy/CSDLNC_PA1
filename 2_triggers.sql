@@ -1,11 +1,11 @@
-﻿use LAB01
+use LAB01
 go
 -----------------------------------------------------------
 --Cau 2. Cai cac trigger
 --a. Thành tiền CTHD = (Số lượng * (Giá bán - Giá giảm))
 alter trigger trigger_ThanhTien	
 on CT_HoaDon
-for insert, update, delete as
+for insert, update, delete	as
 if update (SoLuong) or update (GiaBan) or update (GiaGiam)
 begin
 	update	
@@ -23,17 +23,17 @@ go
 --b. Tổng tiền (mahd) = sum (ThanhTien) cthd(mahd)
 alter trigger trigger_TongTien		
 on CT_HoaDon 
-for insert, update, delete 
-as
-if update (SoLuong) or update (GiaBan) or update (GiaGiam) 
+for insert, delete, update	as
 begin
-	update HoaDon 
-	set TongTien = (select sum(ThanhTien)
+	update 
+		HoaDon 
+	set 
+		TongTien = (select sum(ThanhTien)
 					from CT_HoaDon
-					where CT_HoaDon.MaHD = HoaDon.MaHD)					
+					where CT_HoaDon.MaHD = HoaDon.MaHD)	
 	where 
-		exists (select * from inserted i where i.MaHD = HoaDon.MaHD) or
-		exists (select * from deleted d	 where d.MaHD = HoaDon.MaHD)
+		exists (select * from deleted d	 where d.MaHD = HoaDon.MaHD) or
+		exists (select * from inserted i where i.MaHD = HoaDon.MaHD) 
 end
 go
 
@@ -51,11 +51,9 @@ delete from CT_HoaDon where MaHD = N'ID000000' and MaSP = N'AAA001'
 delete from SanPham where TenSP = N'Hershey kisses'
 delete from SanPham where TenSP = N'Kinder chocolate'
 
+update CT_HoaDon set SoLuong = 15 where  MaHD = N'ID000000' and MaSP = N'AAB000'
+update CT_HoaDon set SoLuong = 20 where  MaHD = N'ID000000' and MaSP = N'AAA001'
+
 select * from SanPham
-select * from CT_HoaDon
+select * from CT_HoaDon 
 select * from HoaDon
-
-
-
-
-
