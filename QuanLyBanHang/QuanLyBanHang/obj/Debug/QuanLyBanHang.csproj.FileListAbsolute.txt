@@ -1,0 +1,14 @@
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe.config
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\bin\Debug\QuanLyBanHang.pdb
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.AssemblyReference.cache
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.Properties.Resources.resources
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.GenerateResource.cache
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.CoreCompileInputs.cache
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.MainQL.resources
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.GUI.frmTaoHD.resources
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.GUI.frmTKDoanhThu.resources
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.GUI.frmXemDSHD.resources
+D:\HTTT\CSDLNC_PA1\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.ResolveComReference.cache
