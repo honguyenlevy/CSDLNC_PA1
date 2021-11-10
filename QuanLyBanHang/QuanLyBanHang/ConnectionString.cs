@@ -11,3 +11,4 @@ namespace QuanLyBanHang
         public static string connectionString = @"Data Source=HONGUYENLEVY;Initial Catalog=QLBH;Integrated Security=True";
     }
 }
+

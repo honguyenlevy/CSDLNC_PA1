@@ -14,7 +14,6 @@ namespace QuanLyBanHang.GUI
 {
     public partial class frmXemDSHD : Form
     {
-        //DataTable DSHD;
         public frmXemDSHD()
         {
             InitializeComponent();

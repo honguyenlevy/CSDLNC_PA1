@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using QuanLyBanHang.Class;
 using System.Data.SqlClient;
 
+
 namespace QuanLyBanHang
 {
     public partial class MainQL : Form
@@ -32,7 +33,6 @@ namespace QuanLyBanHang
         private void TaoHoaDon_Click(object sender, EventArgs e)
         {
             QuanLyBanHang.GUI.frmTaoHD frm = new GUI.frmTaoHD();
-            //frm.MdiParent = this;
             frm.ShowDialog();
         }
 
@@ -52,8 +52,6 @@ namespace QuanLyBanHang
         {
             Function.Disconnect();
             Application.Exit();
-        }
-
-       
+        }       
     }
 }

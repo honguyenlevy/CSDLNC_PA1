@@ -12,7 +12,6 @@ using System.Data.SqlClient;
 using COMExcel = Microsoft.Office.Interop.Excel;
 
 
-
 namespace QuanLyBanHang.GUI
 {
     
@@ -43,6 +42,7 @@ namespace QuanLyBanHang.GUI
             gridHoaDon.DataSource = GetAllHoaDon().Tables[0];
             
         }
+
         private void TaoHoaDon_Load(object sender, EventArgs e)
         {
             ThemHoaDon.Enabled = true;
@@ -109,9 +109,7 @@ namespace QuanLyBanHang.GUI
         private void Thoat_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-  
+        }  
 
         private void LuuHoaDon_Click(object sender, EventArgs e)
         {
@@ -167,8 +165,7 @@ namespace QuanLyBanHang.GUI
                 comboMaSanPham.Focus();
                 return;
             }
-            //sql = "Select distinct MaKH From HoaDon where MaHD = N'"+textMaHoaDon.Text.Trim()+"'";
-            //string sql1 = Convert.ToDouble(Function.GetFieldValues("Select distinct MaKH From HoaDon where MaHD = N'" + textMaHoaDon.Text.Trim() + "'"));
+        
             string sql1 = Convert.ToString(Function.GetFieldValues("Select distinct MaKH From HoaDon where MaHD = N'" + textMaHoaDon.Text.Trim() + "'"));
             string sql2 = Convert.ToString(Function.GetFieldValues("Select MaKH From HoaDon where MaKH = N'" + comboMaKhachHang.SelectedValue + "'"));
             if (sql1 != sql2)
@@ -178,20 +175,7 @@ namespace QuanLyBanHang.GUI
                 comboMaKhachHang.Focus();
                 return;
             }
-            //if (Function.CheckKey(sql))
-            //{
-            //    MessageBox.Show("Mã khách hàng này không tồn tại trong hóa đơn này, bạn hãy chọn mã khách hàng khác hoặc chọn đơn hàng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    ResetValuesKH();
-            //    comboMaKhachHang.Focus();
-            //    return;
-            //}
-            //if (Function.CheckKey(sql))
-            //{
-            //    MessageBox.Show("Mã khách hàng này không tồn tại trong hóa đơn này, bạn hãy chọn mã khách hàng khác hoặc chọn đơn hàng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    ResetValuesSP();
-            //    comboMaKhachHang.Focus();
-            //    return;
-            //}
+
             sl = Convert.ToDouble(Function.GetFieldValues("SELECT SoLuongTon FROM SanPham WHERE MaSP = N'" + comboMaSanPham.SelectedValue + "'"));
             if (Convert.ToDouble(textSoLuong.Text) > sl)
             {
@@ -203,7 +187,7 @@ namespace QuanLyBanHang.GUI
             sql = "INSERT INTO CT_HoaDon(MaHD, MaSP,SoLuong, GiaBan, GiaGiam,ThanhTien) VALUES(N'" + textMaHoaDon.Text.Trim() + "',N'" + comboMaSanPham.SelectedValue + "'," + textSoLuong.Text + "," + textGiaBan.Text + "," + textGiaGiam.Text + "," + textThanhTien.Text + ")";
             Function.RunSQL(sql);
             LoadDataGridView();
-            // Cập nhật lại số lượng của mặt hàng vào bảng tblHang
+            // Cập nhật lại số lượng của sản phẩm
             SLcon = sl - Convert.ToDouble(textSoLuong.Text);
             sql = "UPDATE SanPham SET SoLuongTon =" + SLcon + " WHERE MaSP= N'" + comboMaSanPham.SelectedValue + "'";
             Function.RunSQL(sql);
@@ -213,11 +197,7 @@ namespace QuanLyBanHang.GUI
             sql = "UPDATE HoaDon SET TongTien =" + Tongmoi + " WHERE MaHD = N'" + textMaHoaDon.Text + "'";
             Function.RunSQL(sql);
             textTongTien.Text = Tongmoi.ToString();
-            //lblBangChu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(Tongmoi.ToString());
             ResetValuesSP();
-            //btnXoa.Enabled = true;
-            //btnThem.Enabled = true;
-            //btnInHoaDon.Enabled = true;
         }
 
 
@@ -226,7 +206,6 @@ namespace QuanLyBanHang.GUI
             LuuHoaDon.Enabled = true;
             ThemHoaDon.Enabled = false;
             ResetValues();
-            //textMaHoaDon.Text = Function.CreateKey("HDB");
             LoadDataGridView();
         }
 
@@ -238,13 +217,9 @@ namespace QuanLyBanHang.GUI
                 textTenKhachHang.Text = "";
               
             }
-            //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
             str = "Select Ten from KhachHang where MaKH = N'" + comboMaKhachHang.SelectedValue + "'";
-            textTenKhachHang.Text = Function.GetFieldValues(str);
-            
-        }
-
-      
+            textTenKhachHang.Text = Function.GetFieldValues(str);            
+        }      
 
         private void textSoLuong_TextChanged(object sender, EventArgs e)
         {
@@ -263,10 +238,7 @@ namespace QuanLyBanHang.GUI
                 dg = Convert.ToDouble(textGiaBan.Text);
             tt = sl * dg - sl * gg;
             textThanhTien.Text = tt.ToString();
-            //sumt = tt;
-            //textTongTien.Text = sumt.ToString();
         }
-
 
         private void comboMaSanPham_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -277,15 +249,12 @@ namespace QuanLyBanHang.GUI
                 textGiaBan.Text = "";
                 textGiaGiam.Text = "";
             }
-            // Khi chọn mã hàng thì các thông tin về hàng hiện ra
             str = "SELECT TenSP FROM SanPham WHERE MaSP =N'" + comboMaSanPham.SelectedValue + "'";
             textTenSanPham.Text = Function.GetFieldValues(str);
             str = "SELECT GiaBan FROM CT_HoaDon WHERE MaSP =N'" + comboMaSanPham.SelectedValue + "'";
             textGiaBan.Text = Function.GetFieldValues(str);
             str = "SELECT GiaGiam FROM CT_HoaDon WHERE MaSP =N'" + comboMaSanPham.SelectedValue + "'";
             textGiaGiam.Text = Function.GetFieldValues(str);
-        }
-
-       
+        }       
     }
 }

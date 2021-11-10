@@ -136,7 +136,6 @@ namespace QuanLyBanHang.GUI
             this.dataGridDoanhThu.RowTemplate.Height = 24;
             this.dataGridDoanhThu.Size = new System.Drawing.Size(799, 329);
             this.dataGridDoanhThu.TabIndex = 0;
-            this.dataGridDoanhThu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDoanhThu_CellContentClick);
             // 
             // frmTKDoanhThu
             // 
