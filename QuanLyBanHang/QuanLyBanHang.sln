@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyBanHang", "QuanLyBanHang\QuanLyBanHang.csproj", "{CA519AB5-7296-47EF-9B16-45F9B42FE737}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QuanLyBanHang_ADB1_5", "QuanLyBanHang_ADB1_5\QuanLyBanHang_ADB1_5.vdproj", "{E6FCF154-BF7A-4E05-96F3-4F29B5DDF181}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{CA519AB5-7296-47EF-9B16-45F9B42FE737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA519AB5-7296-47EF-9B16-45F9B42FE737}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA519AB5-7296-47EF-9B16-45F9B42FE737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6FCF154-BF7A-4E05-96F3-4F29B5DDF181}.Debug|Any CPU.ActiveCfg = Debug
+		{E6FCF154-BF7A-4E05-96F3-4F29B5DDF181}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
