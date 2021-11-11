@@ -1,7 +1,12 @@
-﻿use LAB01
+use LAB01
 go
 ---------------------------------------------------------------------------------
--- Cau 3. Viet cac truy van
+-- Cập nhật bảng KhachHang cột TPho trước khi thực hiện truy vấn câu b
+update KhachHang
+set KhachHang.TPho = N'Thành phố Hồ Chí Minh'
+where KhachHang.TPho = N''
+
+---------------------------------------------------------------------------------
 -- a. Cho danh sách các hoá đơn lập trong năm 2020
 select *
 from HoaDon hd
@@ -23,13 +28,21 @@ from SanPham sp
 where sp.SoLuongTon < 100
 
 -- e. Cho danh sách các sản phẩm bán chạy nhất (số lượng bán nhiều nhất)
-select cthd.MaSP, sp.TenSP, cthd.SoLuong
+select cthd.MaSP, sp.TenSP, sp.SoLuongTon, sp.Mota, sp.Gia, sum(SoLuong) as 'SoLuongBan'
 from CT_HoaDon cthd, SanPham sp
-where sp.MaSP = cthd.MaSP and
-	cthd.SoLuong in (select max(SoLuong) from CT_HoaDon)
+where	cthd.MaSP = sp.MaSP 
+group by cthd.MaSP, sp.TenSP, sp.SoLuongTon, sp.Mota, sp.Gia
+having sum(cthd.SoLuong) >= all (select sum(SoLuong) 
+									from CT_HoaDon cthd, SanPham sp
+									where	cthd.MaSP = sp.MaSP 
+									group by cthd.MaSP)
 		
--- f. Cho danh sách các sản [dbo].[CT_HoaDon] phẩm có doanh thu cao nhất
-select cthd.MaSP, sp.TenSP, cthd.ThanhTien
+-- f. Cho danh sách các sản [dbo].[CT_HoaDon] phẩm có doanh thu cao nhất as 
+select cthd.MaSP, sp.TenSP, sp.SoLuongTon, sp.Mota, sp.Gia, sum(ThanhTien) as 'DoanhThu'
 from CT_HoaDon cthd, SanPham sp
-where	cthd.MaSP = sp.MaSP and
-		cthd.ThanhTien in (select max(ThanhTien) from CT_HoaDon)
+where	cthd.MaSP = sp.MaSP 
+group by cthd.MaSP, sp.TenSP, sp.SoLuongTon, sp.Mota, sp.Gia
+having sum(cthd.ThanhTien) >= all (select sum(ThanhTien) 
+									from CT_HoaDon cthd, SanPham sp
+									where	cthd.MaSP = sp.MaSP 
+									group by cthd.MaSP)
