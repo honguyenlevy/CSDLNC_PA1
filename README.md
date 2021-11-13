@@ -5,4 +5,4 @@
 
 QuanLyBanHang/QuanLyBanHang_ADB1_5/Debug/setup.exe
 
-Lưu ý: * folder, còn lại là file
+
