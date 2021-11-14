@@ -98,6 +98,8 @@ namespace QuanLyBanHang.GUI
             textGiaBan.Text = "0";
             textGiaGiam.Text = "0";
             textThanhTien.Text = "0";
+            comboMaSanPham.Text = "0";
+            textThanhTien.Text = "0";
         }
 
         private void ResetValuesKH()
@@ -114,7 +116,7 @@ namespace QuanLyBanHang.GUI
         private void LuuHoaDon_Click(object sender, EventArgs e)
         {
             string sql;
-            double sl, SLcon, tong, Tongmoi;
+            double sl, SLcon, Tongmoi;
             sql = "SELECT MaHD FROM HoaDon WHERE MaHD = N'" + textMaHoaDon.Text + "'";
             if (!Function.CheckKey(sql))
             {
@@ -192,8 +194,8 @@ namespace QuanLyBanHang.GUI
             sql = "UPDATE SanPham SET SoLuongTon =" + SLcon + " WHERE MaSP= N'" + comboMaSanPham.SelectedValue + "'";
             Function.RunSQL(sql);
             // Cập nhật lại tổng tiền cho hóa đơn bán
-            tong = Convert.ToDouble(Function.GetFieldValues("SELECT TongTien FROM HoaDon WHERE MaHD = N'" + textMaHoaDon.Text + "'"));
-            Tongmoi = tong + Convert.ToDouble(textThanhTien.Text);
+            Tongmoi = Convert.ToDouble(Function.GetFieldValues("SELECT TongTien FROM HoaDon WHERE MaHD = N'" + textMaHoaDon.Text + "'"));
+            
             sql = "UPDATE HoaDon SET TongTien =" + Tongmoi + " WHERE MaHD = N'" + textMaHoaDon.Text + "'";
             Function.RunSQL(sql);
             textTongTien.Text = Tongmoi.ToString();
