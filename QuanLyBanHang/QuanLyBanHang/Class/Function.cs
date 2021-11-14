@@ -17,7 +17,7 @@ namespace QuanLyBanHang.Class
         public static void Connect()
         {
             con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.QuanLyBanHangConnectionString;
+            con.ConnectionString = Properties.Settings.Default.QuanLyBanHang;
             if(con.State != ConnectionState.Open)
             {
                 con.Open();
@@ -39,13 +39,6 @@ namespace QuanLyBanHang.Class
         }
         public static DataTable GenDataToTable(string sql)
         {
-            //DataTable table = new DataTable();
-            //SqlDataAdapter dap = new SqlDataAdapter();
-            //dap.SelectCommand = new SqlCommand();
-            //dap.SelectCommand.Connection = Function.con;
-            //dap.SelectCommand.CommandText = sql;
-            //dap.Fill(table);
-            //return table;
             SqlDataAdapter dap = new SqlDataAdapter(sql, con);
             DataTable table = new DataTable();
             return table;
@@ -54,16 +47,12 @@ namespace QuanLyBanHang.Class
         {
             SqlDataAdapter dap = new SqlDataAdapter(sql, con);
             DataTable table = new DataTable();
-            dap.Fill(table);
-            
+            dap.Fill(table);            
             
             cbo.DisplayMember = ten;
             cbo.ValueMember = ma;
-            cbo.DataSource = table;
-           
-        }
-
-        
+            cbo.DataSource = table;           
+        }        
 
         public static string CoverDataTime(string date)
         {
@@ -75,7 +64,6 @@ namespace QuanLyBanHang.Class
         public static string CoverDataTimeMonth(string date)
         {
             string[] elements = date.Split('/');
-            //string dt = string.Format("{0}", elements[0]);
             return elements[0];
         }
 
@@ -107,16 +95,6 @@ namespace QuanLyBanHang.Class
                 return true;
             else return false;
         }
-
-        //public static bool CheckHK(string sql)
-        //{
-        //    SqlDataAdapter dap = new SqlDataAdapter(sql, con);
-        //    DataTable table = new DataTable();
-        //    dap.Fill(table);
-        //    if (table.Rows.Count > 0)
-        //        return true;
-        //    else return false;
-        //}
 
         public static void RunSQL(string sql)
         {

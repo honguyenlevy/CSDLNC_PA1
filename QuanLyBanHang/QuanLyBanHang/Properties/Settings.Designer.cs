@@ -26,20 +26,10 @@ namespace QuanLyBanHang.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HONGUYENLEVY;Initial Catalog=QLBH;Integrated Security=True")]
-        public string QuanLyBanHangConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HONGUYENLEVY;Initial Catalog=ADB1_5_DA1;Integrated Security=True")]
+        public string QuanLyBanHang {
             get {
-                return ((string)(this["QuanLyBanHangConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HONGUYENLEVY;Initial Catalog=QLBH;Integrated Security=True")]
-        public string QLBH {
-            get {
-                return ((string)(this["QLBH"]));
+                return ((string)(this["QuanLyBanHang"]));
             }
         }
     }
